@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>java知识点总结 | Cloud's Blog</title><meta name="author" content="Cloud"><meta name="copyright" content="Cloud"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="构造方法子类构造方法在调用时必须先调用父类的，由于父类没有无参构造，必须在子类中显式调用 在任何情况下，构造一个类的实例时，将会调用沿着继承链的所有父类的构造方法。当构造一个子类的对象时，子类构造方法会在完成自己的任务之前，首先调用它的父类的构造方法。如果父类继承自其他类，那么父类构造方法又会在完成自己的任务之前，调用它自己的父类的构造方法。这个过程持续到沿着这个继承体系结构的最后一个构造方法被">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java知识点总结">
+<meta property="og:url" content="https://striveddy.github.io/myblog.github.io/post/9daba997.html">
+<meta property="og:site_name" content="Cloud&#39;s Blog">
+<meta property="og:description" content="构造方法子类构造方法在调用时必须先调用父类的，由于父类没有无参构造，必须在子类中显式调用 在任何情况下，构造一个类的实例时，将会调用沿着继承链的所有父类的构造方法。当构造一个子类的对象时，子类构造方法会在完成自己的任务之前，首先调用它的父类的构造方法。如果父类继承自其他类，那么父类构造方法又会在完成自己的任务之前，调用它自己的父类的构造方法。这个过程持续到沿着这个继承体系结构的最后一个构造方法被">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://striveddy.github.io/myblog.github.io/img/avatar.jpg">
+<meta property="article:published_time" content="2023-02-08T08:27:31.000Z">
+<meta property="article:modified_time" content="2023-02-08T08:36:08.099Z">
+<meta property="article:author" content="Cloud">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://striveddy.github.io/myblog.github.io/img/avatar.jpg"><link rel="shortcut icon" href="/myblog.github.io/img/favicon.png"><link rel="canonical" href="https://striveddy.github.io/myblog.github.io/post/9daba997.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/myblog.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/myblog.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java知识点总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-08 16:36:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/myblog.github.io/css/universe.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/myblog.github.io/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/myblog.github.io/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/myblog.github.io/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/myblog.github.io/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/myblog.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/myblog.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/myblog.github.io/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/myblog.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://w.wallhaven.cc/full/yx/wallhaven-yxx2k7.png')"><nav id="nav"><span id="blog-info"><a href="/myblog.github.io/" title="Cloud's Blog"><span class="site-name">Cloud's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/myblog.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/myblog.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/myblog.github.io/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/myblog.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/myblog.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java知识点总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-08T08:27:31.000Z" title="发表于 2023-02-08 16:27:31">2023-02-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-08T08:36:08.099Z" title="更新于 2023-02-08 16:36:08">2023-02-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java知识点总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220428092755755.png" alt="image-20220428092755755"></p>
+<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><h4 id="子类构造方法在调用时必须先调用父类的，由于父类没有无参构造，必须在子类中显式调用"><a href="#子类构造方法在调用时必须先调用父类的，由于父类没有无参构造，必须在子类中显式调用" class="headerlink" title="子类构造方法在调用时必须先调用父类的，由于父类没有无参构造，必须在子类中显式调用"></a>子类构造方法在调用时必须先调用父类的，由于父类没有无参构造，必须在子类中显式调用</h4><hr>
+<p>在任何情况下，构造一个类的实例时，将会调用沿着继承链的所有父类的构造方法。当构造一个子类的对象时，子类构造方法会在完成自己的任务之前，首先调用它的父类的构造方法。如果父类继承自其他类，那么父类构造方法又会在完成自己的任务之前，调用它自己的父类的构造方法。这个过程持续到沿着这个继承体系结构的最后一个构造方法被调用为止。这就是构造方法链（constructor chaining)。（先构造父类的，在构造自己的）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Base</span><span class="params">(String s)</span>&#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Derived</span> <span class="keyword">extends</span> <span class="title class_">Base</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Derived</span> <span class="params">(String s)</span> &#123;</span><br><span class="line">      	<span class="built_in">super</span>(<span class="string">&quot;s&quot;</span>)</span><br><span class="line">        System.out.print(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Derived</span>(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="与-equals-比较"><a href="#与-equals-比较" class="headerlink" title="== 与 equals 比较"></a>== 与 equals 比较</h1><p>==比较的时栈中的值，基本数据类型时变量值，引用数据类型是堆中内存对象的地址</p>
+<p>equals：object中默认也是采用==比较，通常就会重写</p>
+<p>1.string类重写了equals  其实是比较两个字符串的内容是否相等</p>
+<p><img src="java%E7%9F%A5%E8%AF%86.assets/image-20220512223355144.png" alt="image-20220512223355144"></p>
+<p>LinkedList和ArrayList的差别主要来自于Array和LinkedList数据结构的不同。</p>
+<p>LinkedList ： 链表 [] -&gt; [] -&gt;[]</p>
+<p>ArrayList ：数组   [] [] [] []</p>
+<p> LinkedList ：随机访问集合元素时性能较差，但在插入，删除操作是更快的</p>
+<p>ArrayList：在随机访问集合元素上有较好的性能,插入、删除数据却是开销很大的，因为这需要移动数组中插入位置之后的的所有元素。</p>
+<p><img src="java%E7%9F%A5%E8%AF%86.assets/image-20220512232323277.png" alt="image-20220512232323277"></p>
+<h1 id="Beanutils-copyProperties"><a href="#Beanutils-copyProperties" class="headerlink" title="Beanutils.copyProperties()"></a>Beanutils.copyProperties()</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 <strong>简介</strong></h2><p>BeanUtils提供对Java<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%8F%8D%E5%B0%84&spm=1001.2101.3001.7020">反射</a>和自省API的包装。其主要目的是利用反射机制对JavaBean的属性进行处理。</p>
+<h2 id="2-用法"><a href="#2-用法" class="headerlink" title="2 用法"></a>2 <strong>用法</strong></h2><p>如果有两个具有很多相同属性的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=JavaBean&spm=1001.2101.3001.7020">JavaBean</a>，一个很常见的情况就是Struts里的PO对象（持久对象）和对应的ActionForm。使用 BeanUtils.copyProperties() 方法以后，代码量大大的减少，而且整体程序看着也简洁明朗，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 ActionForm 表单数据</span></span><br><span class="line"><span class="type">UserActionForm</span> <span class="variable">uForm</span> <span class="operator">=</span> (UserActionForm) form;</span><br><span class="line"><span class="comment">// 构造一个User对象</span></span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="comment">// 赋值</span></span><br><span class="line">BeanUtils.copyProperties(user, uForm);</span><br><span class="line"><span class="comment">// 然后调用JDBC、或操作Hibernate 持久化对象User到数据库</span></span><br></pre></td></tr></table></figure>
+
+<p>==注：如果User和UserActionForm 间存在名称不相同的属性，则BeanUtils不对这些属性进行处理，需要手动处理。==</p>
+<p>1.对于类型为Boolean/Short/Integer/Float/Double的属性，它会转换为0：</p>
+<p>2.对于java.util.Date/<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=BigDecimal&spm=1001.2101.3001.7020">BigDecimal</a>/java.sql.Date/java.sql.Timestamp/java.sql.Time这几个类，如果值为null，则在copy时会抛异常，需要使用对应的Conveter：</p>
+<p>```java<br>public class User2 {</p>
+<p> private java.util.Date javaUtilDateVal;</p>
+<p> private java.sql.Date javaSqlDateVal;</p>
+<p>  private java.sql.Timestamp javaSqlTimeStampVal;</p>
+<p>  private BigDecimal bigDecimalVal;</p>
+<p>  private java.sql.Time javaSqlTime;</p>
+<p>}</p>
+<p>User2 src =  new User2();<br>User2 dest =  new User2();</p>
+<p>BeanUtilsBean beanUtilsBean =  new BeanUtilsBean();</p>
+<p>//如果没有下面几行，则在转换null时会抛异常，例如：org.apache.commons.beanutils.ConversionException: No value specified for ‘BigDecimal’<br>//在org.apache.commons.beanutils.converters这个包下面有很多的Converter，可以按需要使用<br>beanUtilsBean.getConvertUtils().register(neworg.apache.commons.beanutils.converters.BigDecimalConverter( null ), BigDecimal. class );<br>beanUtilsBean.getConvertUtils().register( new org.apache.commons.beanutils.converters.DateConverter( null ), java.util.Date. class );</p>
+<p>beanUtilsBean.getConvertUtils().register( new org.apache.commons.beanutils.converters.SqlTimestampConverter( null ), java.sql.Timestamp. class );<br>beanUtilsBean.getConvertUtils().register( new org.apache.commons.beanutils.converters.SqlDateConverter( null ), java.sql.Date. class );<br>beanUtilsBean.getConvertUtils().register( new org.apache.commons.beanutils.converters.SqlTimeConverter( null ), java.sql.Time. class );</p>
+<p>beanUtilsBean.copyProperties(dest, src);</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://striveddy.github.io/myblog.github.io">Cloud</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://striveddy.github.io/myblog.github.io/post/9daba997.html">https://striveddy.github.io/myblog.github.io/post/9daba997.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://striveddy.github.io/myblog.github.io" target="_blank">Cloud's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/myblog.github.io/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/myblog.github.io/post/4a17b156.html" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/myblog.github.io/img/avatar.jpg" onerror="this.onerror=null;this.src='/myblog.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Cloud</div><div class="author-info__description">既然选择了远方,便只顾风雨兼程</div></div><div class="card-info-data site-data is-center"><a href="/myblog.github.io/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/myblog.github.io/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/myblog.github.io/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/striveddy"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/striveddy" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/m0_53540242?spm=1010.2135.3001.5421" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="/myblog.github.io/xxx" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="/myblog.github.io/xxxx" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">吾生也有涯，而知也无涯。欢迎阅读!</div></div><div class="xpand" style="height:200px;"><canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas></div><script src="https://npm.elemecdn.com/ethan4116-blog/lib/js/other/two-people/twopeople1.js"></script><script src="https://npm.elemecdn.com/ethan4116-blog/lib/js/other/two-people/zdog.dist.js"></script><script id="rendered-js" src="https://npm.elemecdn.com/ethan4116-blog/lib/js/other/two-people/twopeople.js"></script><style>.card-widget.card-announcement {
+margin: 0;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+canvas {
+display: block;
+margin: 0 auto;
+cursor: move;
+}</style><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">构造方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E7%B1%BB%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E5%9C%A8%E8%B0%83%E7%94%A8%E6%97%B6%E5%BF%85%E9%A1%BB%E5%85%88%E8%B0%83%E7%94%A8%E7%88%B6%E7%B1%BB%E7%9A%84%EF%BC%8C%E7%94%B1%E4%BA%8E%E7%88%B6%E7%B1%BB%E6%B2%A1%E6%9C%89%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0%EF%BC%8C%E5%BF%85%E9%A1%BB%E5%9C%A8%E5%AD%90%E7%B1%BB%E4%B8%AD%E6%98%BE%E5%BC%8F%E8%B0%83%E7%94%A8"><span class="toc-number">1.0.1.</span> <span class="toc-text">子类构造方法在调用时必须先调用父类的，由于父类没有无参构造，必须在子类中显式调用</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8E-equals-%E6%AF%94%E8%BE%83"><span class="toc-number"></span> <span class="toc-text">&#x3D;&#x3D; 与 equals 比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beanutils-copyProperties"><span class="toc-number"></span> <span class="toc-text">Beanutils.copyProperties()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">1 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%94%A8%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">2 用法</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/myblog.github.io/post/9daba997.html" title="java知识点总结">java知识点总结</a><time datetime="2023-02-08T08:27:31.000Z" title="发表于 2023-02-08 16:27:31">2023-02-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/myblog.github.io/post/4a17b156.html" title="Hello World">Hello World</a><time datetime="2023-02-06T02:10:57.931Z" title="发表于 2023-02-06 10:10:57">2023-02-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://w.wallhaven.cc/full/yx/wallhaven-yxx2k7.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Cloud</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/myblog.github.io/js/utils.js"></script><script src="/myblog.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/myblog.github.io/js/universe.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
